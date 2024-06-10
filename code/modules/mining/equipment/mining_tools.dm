@@ -298,3 +298,46 @@
 	force = 1
 	throwforce = 1
 	attack_verb = list("неэффективно ударил")
+
+/obj/item/shovel/combat
+	name = "combat shovel"
+	desc = "Удобное орудие труда для копания и убивания. Его также можно складывать, чтобы удобно положить в карман."
+	ru_names = list(
+		NOMINATIVE = "боевая лопата",
+		GENITIVE = "боевой лопаты",
+		DATIVE = "боевой лопате",
+		ACCUSATIVE = "боевую лопату",
+		INSTRUMENTAL = "боевой лопатой",
+		PREPOSITIONAL = "боевой лопате"
+	)
+	icon_state = "combat_shovel0"
+	force = 4
+	var/force_folded = 4
+	var/force_unfolded = 18
+	var/folded = FALSE
+
+/obj/item/shovel/combat/attack_self(mob/user)
+	folded = !folded
+	force = folded ? force_folded : force_unfolded
+	w_class = folded ? WEIGHT_CLASS_SMALL : WEIGHT_CLASS_NORMAL
+	update_icon(UPDATE_ICON_STATE)
+	to_chat(user, span_notice("Вы [folded ? "с" : "раз"]ложили лопату"))
+
+/obj/item/shovel/combat/update_icon_state()
+	icon_state = "combat_shovel[folded]"
+
+/obj/item/shovel/combat/gold
+	name = "golden shovel"
+	desc = "Сделано из золота, дабы рыть золото. Или разрубать златожоров."
+	ru_names = list(
+		NOMINATIVE = "золотая лопата",
+		GENITIVE = "золотой лопаты",
+		DATIVE = "золотой лопате",
+		ACCUSATIVE = "золотую лопату",
+		INSTRUMENTAL = "золотой лопатой",
+		PREPOSITIONAL = "золотой лопате"
+	)
+	icon_state = "golden_shovel0"
+	force = 5
+	force_folded = 5
+	force_unfolded = 20
