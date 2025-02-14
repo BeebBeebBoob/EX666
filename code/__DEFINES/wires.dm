@@ -81,3 +81,7 @@
 #define WIRE_WASHER_HACK "Hack"
 #define WIRE_WASHER_DISABLE "Disable"
 
+// R&D machinery
+#define WIRE_RND_HACK "Hack"
+#define WIRE_RND_SHOCK "Shock"
+#define WIRE_RND_DISABLE "Disable"
