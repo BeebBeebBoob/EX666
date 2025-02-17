@@ -21,14 +21,7 @@
 
 /obj/machinery/rnd/Initialize(mapload)
 	. = ..()
-	materials = AddComponent(
-		/datum/component/material_container,
-		list(MAT_METAL, MAT_GLASS, MAT_SILVER, MAT_GOLD, MAT_DIAMOND, MAT_PLASMA, MAT_URANIUM, MAT_BANANIUM, MAT_TRANQUILLITE, MAT_TITANIUM, MAT_BLUESPACE, MAT_PLASTIC),
-		0,
-		TRUE,
-		/obj/item/stack,
-		CALLBACK(src, PROC_REF(is_insertion_ready)),
-		CALLBACK(src, PROC_REF(after_material_insert)))
+	materials = AddComponent(/datum/component/material_container, list(MAT_METAL, MAT_GLASS, MAT_SILVER, MAT_GOLD, MAT_DIAMOND, MAT_PLASMA, MAT_URANIUM, MAT_BANANIUM, MAT_TRANQUILLITE, MAT_TITANIUM, MAT_BLUESPACE, MAT_PLASTIC), 0, TRUE, /obj/item/stack, CALLBACK(src, PROC_REF(is_insertion_ready)), CALLBACK(src, PROC_REF(after_material_insert)))
 	materials.precise_insertion = TRUE
 	retun INITIALIZE_HINT_LATELOAD
 
